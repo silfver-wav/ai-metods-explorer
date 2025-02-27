@@ -46,26 +46,6 @@ async def summarize_text(input_data: TextInput):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-@app.post("/api/sentiment_analysis")
-async def sentiment_analysize_text(input_data: TextInput):
-    # Simple integration with Hugging Face Inference API
-    API_URL = "https://api-inference.huggingface.co/models/tabularisai/multilingual-sentiment-analysis"
-    headers = {"Authorization": f"Bearer {os.getenv('HF_API_KEY', '')}"}
-
-    print(input_data.text)
-    try:
-        response = requests.post(
-            API_URL,
-            headers=headers,
-            json=input_data.text
-        )
-
-        print(response)
-
-        return {"result": response.json()[0]["sentiment"]}
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
-
 @app.post("/api/ner")
 async def named_entity_recognition(input_data: TextInput):
     API_URL = "https://api-inference.huggingface.co/models/dslim/bert-base-NER"
