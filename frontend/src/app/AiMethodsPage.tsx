@@ -2,10 +2,15 @@
 
 import { useState } from 'react';
 
+type Entity = {
+    word: string;
+    entity_group: string;
+};
+
 export default function AiMethodsPage() {
     const [text, setText] = useState('');
     const [summary, setSummary] = useState('');
-    const [entities, setEntities] = useState([]);
+    const [entities, setEntities] = useState<Entity[]>([]);
     const [isLoading, setisLoading] = useState(false);
     const [isError, setisError] = useState(false);
 
@@ -53,6 +58,7 @@ export default function AiMethodsPage() {
 
     return (
         <div className="flex flex-col items-center p-6 space-y-6">
+            <h1 className="text-white" >Test the AI tools</h1>
             <textarea
                 value={text}
                 onChange={(e) => setText(e.target.value)}
