@@ -53,6 +53,7 @@ export default function AiMethodsPage() {
 
     return (
         <div className="flex flex-col items-center p-6 space-y-6">
+            <h1 className="text-white" >Test the AI tools</h1>
             <textarea
                 value={text}
                 onChange={(e) => setText(e.target.value)}
