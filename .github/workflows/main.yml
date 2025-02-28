@@ -23,7 +23,7 @@ jobs :
       - name : Run tests
         run : |
           cd backend
-          pytest
+          pytest api_tests.py
 
   build - frontend :
     runs - on : ubuntu - latest
