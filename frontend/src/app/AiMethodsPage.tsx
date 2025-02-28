@@ -2,10 +2,15 @@
 
 import { useState } from 'react';
 
+type Entity = {
+    word: string;
+    entity_group: string;
+};
+
 export default function AiMethodsPage() {
     const [text, setText] = useState('');
     const [summary, setSummary] = useState('');
-    const [entities, setEntities] = useState([]);
+    const [entities, setEntities] = useState<Entity[]>([]);
     const [isLoading, setisLoading] = useState(false);
     const [isError, setisError] = useState(false);
 
